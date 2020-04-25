@@ -76,6 +76,22 @@ export class HeroesService {
     return this.heroes[index];
   }
 
+  busquedaHeroes( termino: string): Heroe[]{
+    // tslint:disable-next-line: prefer-const
+    let heroesArray: Heroe[] = [];
+    termino = termino.toLowerCase();
+
+    // tslint:disable-next-line: prefer-const
+    for(let heroe of this.heroes){
+      // tslint:disable-next-line: prefer-const
+      let nombre = heroe.nombre.toLowerCase();
+      if (nombre.indexOf(termino) >= 0) {
+        heroesArray.push( heroe );
+      }
+    }
+    return heroesArray;
+  }
+
 }
 
 export interface Heroe {
